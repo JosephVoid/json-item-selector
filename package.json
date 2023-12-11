@@ -1,0 +1,24 @@
+{
+  "name": "json-item-selector",
+  "version": "1.0.0",
+  "description": "Selector of JSON items that used to be accessed recursivley",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JosephVoid/json-item-selector.git"
+  },
+  "keywords": [
+    "JSON",
+    "selector",
+    "items"
+  ],
+  "author": "Yoseph Tenaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JosephVoid/json-item-selector/issues"
+  },
+  "homepage": "https://github.com/JosephVoid/json-item-selector#readme"
+}
