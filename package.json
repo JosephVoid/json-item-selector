@@ -2,9 +2,20 @@
   "name": "json-item-selector",
   "version": "1.0.0",
   "description": "Selector of JSON items that used to be accessed recursivley",
-  "main": "index.js",
+  "source": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean"
   },
   "repository": {
     "type": "git",
@@ -20,5 +31,9 @@
   "bugs": {
     "url": "https://github.com/JosephVoid/json-item-selector/issues"
   },
-  "homepage": "https://github.com/JosephVoid/json-item-selector#readme"
+  "homepage": "https://github.com/JosephVoid/json-item-selector#readme",
+  "devDependencies": {
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  }
 }
