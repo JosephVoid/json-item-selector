@@ -4,15 +4,15 @@ import {JsonItemSelector} from "../src/index"
 
 describe("Access Value", () => {
     test("Value", () => {
-        expect(JsonItemSelector.access_value(["quiz", "sport", "q1"], test_json_1, 0)?.question)
+        expect(JsonItemSelector['access_value'](["quiz", "sport", "q1"], test_json_1, 0)?.question)
             .toBe('Which one is correct team name in NBA?');
-        expect(JsonItemSelector.access_value(["quiz", "maths", "q2"], test_json_1, 0)?.answer)
+        expect(JsonItemSelector['access_value'](["quiz", "maths", "q2"], test_json_1, 0)?.answer)
             .toBe('4');
-        expect(JsonItemSelector.access_value(["quiz", "sport", "q1", "options"], test_json_1, 0)?.length)
+        expect(JsonItemSelector['access_value'](["quiz", "sport", "q1", "options"], test_json_1, 0)?.length)
             .toBe(4);
-        expect(JsonItemSelector.access_value(["ADDIS ABABA", "ADDIS KETEMA SUB CITY"], test_json_2, 0)?.length)
+        expect(JsonItemSelector['access_value'](["ADDIS ABABA", "ADDIS KETEMA SUB CITY"], test_json_2, 0)?.length)
             .toBe(14);
-        expect(JsonItemSelector.access_value(["SNNPR", "GEDEO"], test_json_2, 0)?.[0])
+        expect(JsonItemSelector['access_value'](["SNNPR", "GEDEO"], test_json_2, 0)?.[0])
             .toBe("BULE");
     })
 })
