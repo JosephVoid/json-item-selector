@@ -17,6 +17,28 @@ describe("Access Value", () => {
     })
 })
 
+describe ("Reset & Clearing", () => {
+    test("clear_last", () => {
+        const JIS_2 = new JsonItemSelector(test_json_2);
+
+        expect(JIS_2.select_option(JIS_2.list_options()[0])).toBe(true);
+        expect(JIS_2.select_option(JIS_2.list_options()[0])).toBe(true);
+        expect(JIS_2.list_options().length).toBe(14);
+        expect(JIS_2.clear_last(1)).toBe(true);
+        expect(JIS_2.list_options().length).toBe(11);
+        expect(JIS_2.clear_last(1)).toBe(true);
+        expect(JIS_2.list_options().length).toBe(13);
+    })
+    test("clear_all_selected", () => {
+        const JIS_2 = new JsonItemSelector(test_json_2);
+
+        expect(JIS_2.select_option(JIS_2.list_options()[0])).toBe(true);
+        expect(JIS_2.select_option(JIS_2.list_options()[0])).toBe(true);
+        expect(JIS_2.clear_all_selected()).toBe(true);
+        expect(JIS_2.list_options().length).toBe(13);
+    })
+})
+
 describe("list_options", () => {
     const JIS_1 = new JsonItemSelector(test_json_1);
     const JIS_2 = new JsonItemSelector(test_json_2);
