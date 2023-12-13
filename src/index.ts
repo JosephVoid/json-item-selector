@@ -42,11 +42,23 @@ export class JsonItemSelector {
         return true
     }
 
-    public get_selected ():string[] {
-        return [""]
+    public get_all_selected ():string[] {
+        return this.choice_tree;
     }
 
-    public get_last_selected ():void {}
+    public get_last_selected ():string {
+        return this.choice_tree[this.choice_tree.length - 1];
+    }
+
+    public clear_last (step: number):boolean {
+        this.choice_tree.length = this.choice_tree.length - step;
+        return true;
+    }
+
+    public clear_all_selected ():boolean {
+        this.choice_tree = [];
+        return true;
+    }
 
     private static access_value (choice_tree: string[], obj: PlainObject, depth: number): any {
         if (depth > choice_tree.length - 1) 
