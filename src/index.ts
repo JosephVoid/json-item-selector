@@ -35,7 +35,7 @@ export class JsonItemSelector {
         return option_list;
     }
 
-    public select_option (option: string, step?: number):boolean {
+    public select_option (option: string):boolean {
         if (!this.list_options().includes(option))
             return false;
         this.choice_tree.push(option);
