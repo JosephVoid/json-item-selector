@@ -90,3 +90,22 @@ describe("select_option", () => {
         expect(JIS_2.list_options()[0]).toBe("ADDIS KETEMA SUB CITY");
     })
 })
+
+describe("Getters", () => {
+    test("get_all_selected", () => {
+        const JIS_2 = new JsonItemSelector(test_json_2);
+
+        expect(JIS_2.select_option(JIS_2.list_options()[0])).toBe(true);
+        expect(JIS_2.select_option(JIS_2.list_options()[0])).toBe(true);
+        expect(JIS_2.list_options().length).toBe(14);
+        expect(JIS_2.get_all_selected().length).toBe(2);
+    })
+    test("get_last_selected", () => {
+        const JIS_2 = new JsonItemSelector(test_json_2);
+        
+        expect(JIS_2.select_option(JIS_2.list_options()[0])).toBe(true);
+        expect(JIS_2.select_option(JIS_2.list_options()[0])).toBe(true);
+        expect(JIS_2.list_options().length).toBe(14);
+        expect(JIS_2.get_last_selected()).toBe("ADDIS KETEMA SUB CITY");
+    })
+})
