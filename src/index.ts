@@ -4,7 +4,7 @@ export class JsonItemSelector {
     private json: PlainObject;
     
     constructor (json_object: PlainObject) {
-        this.json = json_object;
+        this.json = JsonItemSelector.transform_json(json_object);
         this.choice_tree = [];
     }
 
@@ -26,7 +26,7 @@ export class JsonItemSelector {
             } 
             else if (typeof next_object === "string") {
                 option_list.length = 0;
-            } 
+            }
             else {
                 for (const key in next_object) {
                     if (Object.prototype.hasOwnProperty.call(next_object, key)) {
@@ -71,5 +71,35 @@ export class JsonItemSelector {
         else {
             return this.access_value(choice_tree, obj[choice_tree[depth]], ++depth);
         } 
+    }
+
+    private static transform_json (inp_json: any):any {
+        try {
+            const str_json = JSON.stringify(inp_json) ?? "";
+            let out_str:string[] = [];
+            let elim_str:string[] = [];
+            for (let i = 0; i < str_json.length; i++) {
+                if (str_json[i] === "[" && str_json[i+1] === "{") {
+                    elim_str.push(str_json[i]);
+                }
+                else if (str_json[i] === "]" && str_json[i-1] === "}") {
+                    elim_str.push(str_json[i]);
+                }
+                else if (
+                    str_json[i] === "}" && str_json[i+1] === "," && str_json[i+2] === "{" || 
+                    str_json[i] === "," && str_json[i+1] === "{" && str_json[i-1] === "{" ||
+                    str_json[i] === "{" && str_json[i-1] === "," && str_json[i-2] === "}"
+                ){
+                    elim_str.push(str_json[i]);
+                }            
+                else {
+                    out_str.push(str_json[i]);
+                }
+            }
+            return JSON.parse(out_str.join(""));
+        } catch (error) {
+            return {};
+        }
+        
     }
 }
