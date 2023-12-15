@@ -1,0 +1,95 @@
+{
+    "Africa": [
+        {
+            "Ethiopia": [
+                {
+                    "Addis Ababa": [
+                        {
+                            "Bole": [
+                                "WOREDA 1",
+                                "WOREDA 2",
+                                "WOREDA 3",
+                                "WOREDA 4",
+                                "WOREDA 5",
+                                "WOREDA 6",
+                                "WOREDA 7",
+                                "WOREDA 8",
+                                "WOREDA 9",
+                                "WOREDA 10",
+                                "WOREDA 11",
+                                "WOREDA 12",
+                                "WOREDA 13",
+                                "WOREDA 14"
+                            ],
+                            "Lemi Kura": [
+                                "WOREDA 1",
+                                "WOREDA 2",
+                                "WOREDA 3",
+                                "WOREDA 4",
+                                "WOREDA 5",
+                                "WOREDA 6",
+                                "WOREDA 7",
+                                "WOREDA 8",
+                                "WOREDA 9",
+                                "WOREDA 10",
+                                "WOREDA 11",
+                                "WOREDA 12",
+                                "WOREDA 13",
+                                "WOREDA 14"
+                            ]
+                        }
+                    ],
+                    "GAMBELA": [
+                        {
+                            "ANYWAA": [
+                                "ABOBO", "ABOL", "DIMA", "GOG", "JOR"
+                            ],
+                            "NUER": [
+                                "AKOBO", "JIKAWO", "LARE", "MAKUY", "WANTUMA"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Ghana": [
+                {
+                    "Accra": [
+                        {
+                            "Partey": [
+                                "PARTY 1",
+                                "PARTY 2",
+                                "PARTY 3",
+                                "PARTY 4",
+                                "PARTY 5",
+                                "PARTY 6",
+                                "PARTY 7",
+                                "PARTY 8",
+                                "PARTY 9",
+                                "PARTY 10"
+                            ],
+                            "COAST": [
+                                "AYEW1",
+                                "AYEW2",
+                                "AYEW3",
+                                "AYEW4",
+                                "AYEW5"
+                            ]
+                        }
+                    ],
+                    "BAMAKO": [
+                        {
+                            "GYAN": [
+                                "ABOBO", "ABOL", "DIMA", "GOG", "JOR"
+                            ],
+                            "NUER": [
+                                "AKOBO", "JIKAWO", "LARE", "MAKUY", "WANTUMA"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
