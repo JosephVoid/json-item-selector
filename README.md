@@ -41,7 +41,10 @@ console.log(JIS.list_options()); // ["earth", "venus"]
 
 JIS.select_option("earth");
 
+console.log(JIS.list_options()); // ["africa", "asia", "europe"]
+
 console.log(JIS.get_all_selected()); // ["galaxy", "milky-way", "earth"]
+
 
 ```
 
