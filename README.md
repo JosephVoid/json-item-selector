@@ -1,5 +1,5 @@
 # json-item-selector
-[![Tests](https://github.com/JosephVoid/json-item-selector/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/JosephVoid/json-item-selector/actions/workflows/test.yml)
+[![Tests](https://github.com/JosephVoid/json-item-selector/actions/workflows/test.yml/badge.svg)](https://github.com/JosephVoid/json-item-selector/actions/workflows/test.yml)
 
 A package that allow you to create choice logic based on a json file. It helps with choice implementations which depend on an external json file and are heavily nested, mostly for use cases like location selection or game dialog mapping. A basic example below
 ```
