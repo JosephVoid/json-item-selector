@@ -1,9 +1,9 @@
-type PlainObject = Record<string, {}>;
+type JsonObject = Record<string, {}>;
 export class JsonItemSelector {
     private choice_tree: string[];
-    private json: PlainObject;
+    private json: JsonObject;
     
-    constructor (json_object: PlainObject) {
+    constructor (json_object: JsonObject) {
         this.json = JsonItemSelector.transform_json(json_object);
         this.choice_tree = [];
     }
@@ -65,7 +65,7 @@ export class JsonItemSelector {
         return true;
     }
 
-    private static access_value (choice_tree: string[], obj: PlainObject, depth: number): any {
+    private static access_value (choice_tree: string[], obj: JsonObject, depth: number): any {
         if (depth > choice_tree.length - 1) 
             return obj;
         else {
