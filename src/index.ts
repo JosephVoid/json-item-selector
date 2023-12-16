@@ -24,15 +24,15 @@ export class JsonItemSelector {
                     option_list.push(next_object[i]);
                 }
             } 
-            else if (typeof next_object === "string") {
-                option_list.length = 0;
-            }
-            else {
+            else if (typeof next_object === "object") {
                 for (const key in next_object) {
                     if (Object.prototype.hasOwnProperty.call(next_object, key)) {
                         option_list.push(key);
                     }
                 }
+            }
+            else {
+                option_list.length = 0;
             }
         }
         return option_list;
