@@ -27,4 +27,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GA }}
           NPM_TOKEN: ${{ secrets.NPM }}
-        run: npx semantic-release --branches main
+        run: npx semantic-release
