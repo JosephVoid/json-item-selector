@@ -40,10 +40,9 @@ export class JsonItemSelector {
 
     public list_options_wdepth (at_depth: number):string[] {
         const option_list: string[] = [];
-        if ((at_depth > this.choice_tree.length && this.choice_tree.length != 0) || at_depth < 0){
+        if (at_depth < 0 || at_depth > this.choice_tree.length)
             return [];
-        }
-            
+
         if (this.choice_tree.length === 0) {
             for (const key in this.json) {
                 if (Object.prototype.hasOwnProperty.call(this.json, key)) {
@@ -86,7 +85,7 @@ export class JsonItemSelector {
             return false;
         if (deny_repeats && this.choice_tree.includes(option))
             return false;
-        if ((at_depth > this.choice_tree.length && this.choice_tree.length != 0) || at_depth < 0)
+        if (at_depth < 0 || at_depth > this.choice_tree.length)
             return false;
         this.choice_tree.splice(at_depth);
         this.choice_tree[at_depth] = option;

@@ -215,5 +215,7 @@ describe("Depth based", () => {
         expect(JIS_3.select_option_wdepth("Africa", -1)).toBe(false);
         expect(JIS_3.select_option_wdepth("Africa", 10)).toBe(false);
         expect(JIS_3.select_option_wdepth("Not exists", 0)).toBe(false);
+        expect(JIS_3.list_options_wdepth(0)).toEqual(["Africa"]);
+        expect(JIS_3.select_option_wdepth("Africa", 0)).toBe(true);
     })
 })
