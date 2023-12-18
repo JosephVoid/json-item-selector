@@ -7,7 +7,19 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "release": {
-    "branches": ["main"]
+    "branches": ["main"],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits",
+          "parserOpts": {
+            "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
+          }
+        }
+      ],
+      "@semantic-release/release-notes-generator"
+    ]
   },
   "exports": {
     ".": {
