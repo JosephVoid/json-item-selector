@@ -174,3 +174,46 @@ describe("Getters", () => {
         expect(JIS_2.get_last_selected()).toBe("ADDIS KETEMA SUB CITY");
     })
 })
+
+describe("Depth based", () => {
+    test("list_options_wdepth & select_option_wdepth", () => {
+        const JIS_3 = new JsonItemSelector(test_json_3);
+        expect(JIS_3.list_options_wdepth(0).length).toBe(1);
+        expect(JIS_3.list_options_wdepth(0)[0]).toBe("Africa");
+        expect(JIS_3.select_option_wdepth("Africa", 0)).toBe(true);
+        // Depth: 1
+        expect(JIS_3.list_options_wdepth(1)[0]).toBe("Ethiopia");
+        expect(JIS_3.select_option_wdepth("Ethiopia", 1)).toBe(true);
+        // Depth: 2
+        expect(JIS_3.list_options_wdepth(2)[0]).toBe("Addis Ababa");
+        expect(JIS_3.select_option_wdepth("Addis Ababa", 2)).toBe(true);
+        // Depth: 3
+        expect(JIS_3.list_options_wdepth(3)[0]).toBe("Bole");
+        expect(JIS_3.select_option_wdepth("Bole", 3)).toBe(true);
+        expect(JIS_3.get_all_selected()).toEqual(["Africa", "Ethiopia", "Addis Ababa", "Bole"]);
+        // Change value at depth: 1
+        expect(JIS_3.select_option_wdepth("Ghana", 1)).toBe(true);
+        expect(JIS_3.get_all_selected()).toEqual(["Africa", "Ghana"]);
+        // New path at Depth: 2
+        expect(JIS_3.list_options_wdepth(2)[0]).toBe("Accra");
+        expect(JIS_3.select_option_wdepth("Accra", 2)).toBe(true);
+        // New path at Depth: 3
+        expect(JIS_3.list_options_wdepth(3)[0]).toBe("Partey");
+        expect(JIS_3.select_option_wdepth("Partey", 3)).toBe(true);
+        // New path at Depth: 4
+        expect(JIS_3.list_options_wdepth(4)[0]).toBe("PARTY 1");
+        expect(JIS_3.select_option_wdepth("PARTY 1", 4)).toBe(true);
+        expect(JIS_3.get_all_selected()).toEqual(["Africa", "Ghana", "Accra", "Partey", "PARTY 1"]);
+        // Change value again at depth: 2
+        expect(JIS_3.select_option_wdepth("BAMAKO", 2)).toBe(true);
+        expect(JIS_3.get_all_selected()).toEqual(["Africa", "Ghana", "BAMAKO"]);
+    });
+    test("edge cases", () => {
+        const JIS_3 = new JsonItemSelector(test_json_3);
+        expect(JIS_3.list_options_wdepth(-1).length).toBe(0);
+        expect(JIS_3.list_options_wdepth(10).length).toBe(0);
+        expect(JIS_3.select_option_wdepth("Africa", -1)).toBe(false);
+        expect(JIS_3.select_option_wdepth("Africa", 10)).toBe(false);
+        expect(JIS_3.select_option_wdepth("Not exists", 0)).toBe(false);
+    })
+})
