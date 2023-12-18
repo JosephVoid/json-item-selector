@@ -41,6 +41,8 @@ const galaxy = {
     }
 }
 
+
+
 const JIS = new JsonItemSelector(galaxy);
 
 console.log(JIS.list(0)); // ["milky-way", "andromeda"] --> List options at 0 depth 
@@ -56,6 +58,8 @@ console.log(JIS.list(2)); // ["africa", "asia", "europe"]
 JIS.select("africa", 2);
 
 console.log(JIS.get_all_selected()); // ["milky-way", "earth", "africa"]
+
+
 
 ```
 [CodePen Example](https://codepen.io/Yoseph-Tenaw/pen/GRzVZzO)
