@@ -29,19 +29,19 @@ const json = {
 
 const JIS = new JsonItemSelector(json);
 
-console.log(JIS.list_options()); // ["galaxy"]
+console.log(JIS.list_no_depth()); // ["galaxy"]
 
-JIS.select_option("galaxy"); // returns true if successful
+JIS.select_no_depth("galaxy"); // returns true if successful
 
-console.log(JIS.list_options()); // ["milky-way", "andromeda"]
+console.log(JIS.list_no_depth()); // ["milky-way", "andromeda"]
 
-JIS.select_option("milky-way");
+JIS.select_no_depth("milky-way");
 
-console.log(JIS.list_options()); // ["earth", "venus"]
+console.log(JIS.list_no_depth()); // ["earth", "venus"]
 
-JIS.select_option("earth");
+JIS.select_no_depth("earth");
 
-console.log(JIS.list_options()); // ["africa", "asia", "europe"]
+console.log(JIS.list_no_depth()); // ["africa", "asia", "europe"]
 
 console.log(JIS.get_all_selected()); // ["galaxy", "milky-way", "earth"]
 
@@ -56,8 +56,8 @@ npm install json-item-selector
 # Methods
 | Name | Description | Params | Defaults | Returns |
 | ------ | ------ | ------ | ------ | ------ |
-| list_options | List all the possible options to select, starting from the first level/ highest depth  | - | | `string []` |
-| select_option | Choose from the available options from the current level/depth, after selecting the next list of option will go to the next level/depth of properties  | `option: string` `deny_repeats?: boolean` | `deny_repeats: false`| `boolean` |
+| list_no_depth | List all the possible options to select, starting from the first level/ highest depth  | - | | `string []` |
+| select_no_depth | Choose from the available options from the current level/depth, after selecting the next list of option will go to the next level/depth of properties  | `option: string` `deny_repeats?: boolean` | `deny_repeats: false`| `boolean` |
 | get_all_selected | Lists all the options selected so far | - | | `string []` |
 | get_last_selected | Gets the last selected option | - | | `string` |
 | clear_last | Remove the last selected option and go back up a level/higher in depth | - | | `boolean` |

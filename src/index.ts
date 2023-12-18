@@ -8,7 +8,7 @@ export class JsonItemSelector {
         this.choice_tree = [];
     }
 
-    public list_options ():string[] {
+    public list_no_depth ():string[] {
         const option_list: string[] = [];
         if (this.choice_tree.length === 0) {
             for (const key in this.json) {
@@ -38,7 +38,7 @@ export class JsonItemSelector {
         return option_list;
     }
 
-    public list_options_wdepth (at_depth: number):string[] {
+    public list (at_depth: number):string[] {
         const option_list: string[] = [];
         if (at_depth < 0 || at_depth > this.choice_tree.length)
             return [];
@@ -71,8 +71,8 @@ export class JsonItemSelector {
         return option_list;
     }
 
-    public select_option (option: string, deny_repeats: boolean = false):boolean {
-        if (!this.list_options().includes(option))
+    public select_no_depth (option: string, deny_repeats: boolean = false):boolean {
+        if (!this.list_no_depth().includes(option))
             return false;
         if (deny_repeats && this.choice_tree.includes(option))
             return false;
@@ -80,8 +80,8 @@ export class JsonItemSelector {
         return true
     }
 
-    public select_option_wdepth (option: string, at_depth: number, deny_repeats: boolean = false):boolean {
-        if (!this.list_options_wdepth(at_depth).includes(option))
+    public select (option: string, at_depth: number, deny_repeats: boolean = false):boolean {
+        if (!this.list(at_depth).includes(option))
             return false;
         if (deny_repeats && this.choice_tree.includes(option))
             return false;
