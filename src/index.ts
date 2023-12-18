@@ -38,12 +38,58 @@ export class JsonItemSelector {
         return option_list;
     }
 
+    public list_options_wdepth (at_depth: number):string[] {
+        const option_list: string[] = [];
+        if ((at_depth > this.choice_tree.length && this.choice_tree.length != 0) || at_depth < 0){
+            return [];
+        }
+            
+        if (this.choice_tree.length === 0) {
+            for (const key in this.json) {
+                if (Object.prototype.hasOwnProperty.call(this.json, key)) {
+                    option_list.push(key);
+                }
+            }
+        }
+        else {
+            const next_object = JsonItemSelector.access_value(this.choice_tree.slice(0, at_depth), this.json, 0);
+            if (Array.isArray(next_object)) {
+                for(let i = 0; i < next_object.length; i++) {
+                    option_list.push(next_object[i]);
+                }
+            } 
+            else if (typeof next_object === "object") {
+                for (const key in next_object) {
+                    if (Object.prototype.hasOwnProperty.call(next_object, key)) {
+                        option_list.push(key);
+                    }
+                }
+            }
+            else {
+                option_list.length = 0;
+            }
+        }
+        return option_list;
+    }
+
     public select_option (option: string, deny_repeats: boolean = false):boolean {
         if (!this.list_options().includes(option))
             return false;
         if (deny_repeats && this.choice_tree.includes(option))
             return false;
         this.choice_tree.push(option);
+        return true
+    }
+
+    public select_option_wdepth (option: string, at_depth: number, deny_repeats: boolean = false):boolean {
+        if (!this.list_options_wdepth(at_depth).includes(option))
+            return false;
+        if (deny_repeats && this.choice_tree.includes(option))
+            return false;
+        if ((at_depth > this.choice_tree.length && this.choice_tree.length != 0) || at_depth < 0)
+            return false;
+        this.choice_tree.splice(at_depth);
+        this.choice_tree[at_depth] = option;
         return true
     }
 
