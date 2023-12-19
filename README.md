@@ -62,7 +62,7 @@ console.log(JIS.get_all_selected()); // ["milky-way", "earth", "africa"]
 
 
 ```
-[CodePen Example](https://codepen.io/Yoseph-Tenaw/pen/GRzVZzO)
+[CodePen Example](https://codepen.io/Yoseph-Tenaw/pen/QWYePxd)
 
 # Installation
 ```
